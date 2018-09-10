@@ -1,0 +1,78 @@
+version: '2'
+services:
+  fpm:
+    build: './build/7.1-fpm'
+    ports:
+    - 9000
+    links:
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+  cli:
+    build: './build/7.1-cli'
+    links:
+    - db
+    volumes:
+    - '~/.composer/cache:/root/.composer/cache'
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    - ./composer.env
+    environment:
+    - M2_SAMPLE_DATA=false
+  db:
+    image: 'mariadb:10'
+    ports:
+    - 3306
+    volumes_from:
+    - dbdata
+    volumes:
+    - ./build/mysql/init:/docker-entrypoint-initdb.d
+    environment:
+    - MYSQL_ROOT_PASSWORD=magento2
+  web:
+    build: './build/nginx'
+    ports:
+    - '8080:80'
+    - '443:443'
+    links:
+    - fpm
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    environment:
+    - MAGENTO_ROOT=/var/www/magento
+  web-msi:
+    build: './build/nginx'
+    ports:
+    - '8081:80'
+    - '444:443'
+    links:
+    - fpm
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    environment:
+    - MAGENTO_ROOT=/var/www/msi
+  appdata:
+    image: alpine
+    volumes:
+    - magento-sync:/var/www/magento:nocopy
+    - msi-sync:/var/www/msi:nocopy
+  dbdata:
+    image: tianon/true
+    volumes:
+    - /var/lib/mysql
+
+volumes:
+  magento-sync:
+    external: true
+  msi-sync:
+    external: true

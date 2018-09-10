@@ -1,0 +1,9 @@
+version: '2'
+
+syncs:
+  magento-sync:
+    src: './services/magento/magento2ce'
+    sync_excludes: ['.git']
+  msi-sync:
+    src: './services/msi'
+    sync_excludes: ['.git']

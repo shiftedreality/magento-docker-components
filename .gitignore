@@ -1,0 +1,7 @@
+/composer.env
+/global.env
+/services/magento/**
+!/services/magento/.gitkeep
+/services/msi/**
+!/services/msi/.gitkeep
+/.docker-sync
