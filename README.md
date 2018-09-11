@@ -18,6 +18,7 @@ Clone your code into `services/magento` and `services/msi` folders. In result yo
 
 ## Usage
 
+* Copy config `cp global.env.dist global.env`
 * Run `docker-sync-stack start` to start sync and `docker-compose up`
 * Run `docker-compose run cli magento-command setup:install --backend-frontname="admin" --cleanup-database --db-host="db" --db-name="magento" --db-user="root" --db-password="magento2" --base-url="http://localhost:8080/" --admin-user="admin" --admin-password="123123q" --admin-email="oposyniak@magento.com" --admin-firstname="Oleh" --admin-lastname="Posyniak"` to install Magento
 * Open `localhost:8080` in your browser
