@@ -6,7 +6,7 @@
 
 ### Code
 
-Clone your code into `services/magento` and `services/msi` folders. In result you structure should be next:
+Clone your code into `services/magento` and `services/msi` folders. In result, your folder structure should be next:
 
 ```
 - services
