@@ -2,7 +2,7 @@
 
 ## Installation
 * Install [Docker](https://www.docker.com/get-started)
-* Install [Docker-sync](https://github.com/EugenMayer/docker-sync)
+* Install [Docker-sync](http://docker-sync.io)
 
 ### Code
 
@@ -16,10 +16,14 @@ Clone your code into `services/magento` and `services/msi` folders. In result, y
 --msi
 ```
 
+## Configs
+
+* Copy global config `cp global.env.dist global.env`
+* Copy composer config `cp composer.env.dist composer.env`
+
 ## Usage
 
-* Copy config `cp global.env.dist global.env`
 * Run `docker-sync-stack start` to start sync and up containers
-* Run `docker-compose run cli magento-command setup:install --backend-frontname="admin" --cleanup-database --db-host="db" --db-name="magento" --db-user="root" --db-password="magento2" --base-url="http://localhost:8080/" --admin-user="admin" --admin-password="123123q" --admin-email="oposyniak@magento.com" --admin-firstname="Oleh" --admin-lastname="Posyniak"` to install Magento
+* Run `docker-compose run cli magento-installer` to install Magento
 * Open `localhost:8080` in your browser for first instance
 * Open `localhost:8081` in your browser for second instance

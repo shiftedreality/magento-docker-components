@@ -1,7 +1,7 @@
 version: '2'
 services:
   fpm:
-    build: './build/7.1-fpm'
+    image: 'shiftedreality/magento-docker-components-php:7.1-fpm'
     ports:
     - 9000
     links:
@@ -11,7 +11,7 @@ services:
     env_file:
     - ./global.env
   cli:
-    build: './build/7.1-cli'
+    image: 'shiftedreality/magento-docker-components-php:7.1-cli'
     links:
     - db
     volumes:
@@ -22,7 +22,17 @@ services:
     - ./global.env
     - ./composer.env
     environment:
-    - M2_SAMPLE_DATA=false
+    - M2SETUP_DB_HOST=db
+    - M2SETUP_DB_NAME=magento
+    - M2SETUP_DB_USER=root
+    - M2SETUP_DB_PASSWORD=magento2
+    - M2SETUP_BASE_URL=http://localhost:8080
+    - M2SETUP_BACKEND_FRONTNAME=admin
+    - M2SETUP_ADMIN_FIRSTNAME=John
+    - M2SETUP_ADMIN_LASTNAME=Doe
+    - M2SETUP_ADMIN_EMAIL=admin@example.com
+    - M2SETUP_ADMIN_USER=admin
+    - M2SETUP_ADMIN_PASSWORD=123123q
   db:
     image: 'mariadb:10'
     ports:

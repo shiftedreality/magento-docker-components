@@ -70,6 +70,6 @@ RUN ["chmod", "+x", "/usr/local/bin/magento-installer"]
 RUN ["chmod", "+x", "/usr/local/bin/magento-command"]
 RUN ["chmod", "+x", "/usr/local/bin/run-cron"]
 
-WORKDIR /var/www/magento
+WORKDIR ${MAGENTO_ROOT}
 
 CMD ["bash"]
