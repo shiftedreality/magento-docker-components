@@ -5,5 +5,5 @@ syncs:
     src: './services/magento/magento2ce'
     sync_excludes: ['.git']
   msi-sync:
-    src: './services/msi'
+    src: './services/msi/magento2ce'
     sync_excludes: ['.git']

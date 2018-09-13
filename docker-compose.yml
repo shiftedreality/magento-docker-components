@@ -14,19 +14,40 @@ services:
     image: 'shiftedreality/magento-docker-components-php:7.1-cli'
     links:
     - db
-    volumes:
-    - '~/.composer/cache:/root/.composer/cache'
     volumes_from:
     - appdata
     env_file:
     - ./global.env
     - ./composer.env
     environment:
+    - MAGENTO_ROOT=/var/www/magento
     - M2SETUP_DB_HOST=db
     - M2SETUP_DB_NAME=magento
     - M2SETUP_DB_USER=root
     - M2SETUP_DB_PASSWORD=magento2
     - M2SETUP_BASE_URL=http://localhost:8080
+    - M2SETUP_BACKEND_FRONTNAME=admin
+    - M2SETUP_ADMIN_FIRSTNAME=John
+    - M2SETUP_ADMIN_LASTNAME=Doe
+    - M2SETUP_ADMIN_EMAIL=admin@example.com
+    - M2SETUP_ADMIN_USER=admin
+    - M2SETUP_ADMIN_PASSWORD=123123q
+  cli-msi:
+    image: 'shiftedreality/magento-docker-components-php:7.1-cli'
+    links:
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    - ./composer.env
+    environment:
+    - MAGENTO_ROOT=/var/www/msi
+    - M2SETUP_DB_HOST=db
+    - M2SETUP_DB_NAME=msi
+    - M2SETUP_DB_USER=root
+    - M2SETUP_DB_PASSWORD=magento2
+    - M2SETUP_BASE_URL=http://localhost:8081
     - M2SETUP_BACKEND_FRONTNAME=admin
     - M2SETUP_ADMIN_FIRSTNAME=John
     - M2SETUP_ADMIN_LASTNAME=Doe
