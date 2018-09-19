@@ -18,12 +18,21 @@ Clone your code into `services/magento` and `services/msi` folders. In result, y
 
 ## Configs
 
-* Copy global config `cp global.env.dist global.env`
-* Copy composer config `cp composer.env.dist composer.env`
+1. Copy global config `cp global.env.dist global.env`
+1. Copy composer config `cp composer.env.dist composer.env`
+
+## Auth
+
+1. Replace default GitHub token in file `composer.env` with your personal
 
 ## Usage
 
-* Run `docker-sync-stack start` to start sync and up containers
-* Run `docker-compose run cli magento-installer` to install Magento
-* Open `localhost:8080` in your browser for first instance
-* Open `localhost:8081` in your browser for second instance
+1. Run `docker-sync-stack start` to start sync and up containers
+1. Run `docker-compose run cli magento-installer` to install first instance
+1. Open `localhost:8080` in your browser for first instance
+1. Run `docker-compose run cli-msi magento-installer` to install second instance
+1. Open `localhost:8081` in your browser for second instance
+
+## End of work
+
+1. Press `Ctrl + C` to stop Docker till next run
