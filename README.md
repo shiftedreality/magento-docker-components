@@ -14,6 +14,7 @@ Clone your code into `services/magento` and `services/msi` folders. In result, y
 --- magento2ce
 --- magento2ee
 --msi
+--- magento2ce
 ```
 
 ## Configs
