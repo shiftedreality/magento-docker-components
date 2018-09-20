@@ -42,9 +42,9 @@ RUN pecl install -o -f xdebug
 ENV PHP_MEMORY_LIMIT 2G
 ENV PHP_ENABLE_XDEBUG false
 ENV MAGENTO_ROOT /var/www/magento
+ENV MAGENTO_RUN_MODE developer
 
-ENV DEBUG false
-ENV M2_SAMPLE_DATA false
+ENV DEBUG true
 
 ADD etc/php-xdebug.ini /usr/local/etc/php/conf.d/zz-xdebug-settings.ini
 ADD etc/mail.ini /usr/local/etc/php/conf.d/zz-mail.ini

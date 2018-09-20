@@ -37,3 +37,7 @@ Clone your code into `services/magento` and `services/msi` folders. In result, y
 ## End of work
 
 1. Press `Ctrl + C` to stop Docker till next run
+
+## Nuke environment
+
+1. Run `docker-sync-stack clean` to remove containers
