@@ -1,0 +1,40 @@
+version: '2'
+services:
+  cli-service:
+    image: 'shiftedreality/magento-docker-components-php:7.1-cli'
+    links:
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    - ./composer.env
+    environment:
+    - MAGENTO_ROOT=/var/www/service
+    - M2SETUP_DB_HOST=db
+    - M2SETUP_DB_NAME=service
+    - M2SETUP_DB_USER=root
+    - M2SETUP_DB_PASSWORD=1234
+    - M2SETUP_BASE_URL=http://localhost:8081
+  web-service:
+    image: 'shiftedreality/magento-docker-components-nginx:latest'
+    ports:
+    - '8081:80'
+    - '444:443'
+    links:
+    - fpm
+    - db
+    volumes_from:
+    - appdata
+    env_file:
+    - ./global.env
+    environment:
+    - MAGENTO_ROOT=/var/www/service
+  appdata:
+    image: alpine
+    volumes:
+    - service-sync:/var/www/service:nocopy
+
+volumes:
+  service-sync:
+    external: true

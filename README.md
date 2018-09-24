@@ -6,14 +6,14 @@
 
 ### Code
 
-Clone your code into `services/magento` and `services/msi` folders. In result, your folder structure should be next:
+Clone your code into `services/magento` and `services/service` folders. In result, your folder structure should be next:
 
 ```
 - services
 -- magento
 --- magento2ce
 --- magento2ee
---msi
+--service
 --- magento2ce
 ```
 
@@ -31,7 +31,7 @@ Clone your code into `services/magento` and `services/msi` folders. In result, y
 1. Run `docker-sync-stack start` to start sync and up containers
 1. Run `docker-compose run cli magento-installer` to install first instance
 1. Open `localhost:8080` in your browser for first instance
-1. Run `docker-compose run cli-msi magento-installer` to install second instance
+1. Run `docker-compose run cli-service magento-installer` to install second instance
 1. Open `localhost:8081` in your browser for second instance
 
 ## End of work

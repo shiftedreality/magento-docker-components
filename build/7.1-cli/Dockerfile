@@ -15,7 +15,6 @@ RUN apt-get update \
     cron \ 
     rsyslog \ 
     mysql-client \
-    git \
     redis-tools
 
 # Configure the gd library

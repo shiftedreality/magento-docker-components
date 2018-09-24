@@ -2,6 +2,6 @@
 /global.env
 /services/magento/**
 !/services/magento/.gitkeep
-/services/msi/**
-!/services/msi/.gitkeep
+/services/service/**
+!/services/service/.gitkeep
 /.docker-sync
