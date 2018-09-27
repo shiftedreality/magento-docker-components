@@ -29,6 +29,9 @@ Clone your code into `services/magento` and `services/service` folders. In resul
 ## Usage
 
 1. Run `docker-sync-stack start` to start sync and up containers
+
+### In new tab (docker-sync should always run)
+
 1. Run `docker-compose run cli magento-installer` to install first instance
 1. Open `localhost:8080` in your browser for first instance
 1. Run `docker-compose run cli-service magento-installer` to install second instance
